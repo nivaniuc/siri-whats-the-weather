@@ -11,14 +11,18 @@
     <link rel="assets/css/style.css" href="style.css">
 </head>
 <body>
-<div class="row">
+
+    <div class="col-sm-4 bg-white">
+
+        <h4 class="pt-1"><strong>Search for a City:</strong></h4>
+
         <div class="input-group mb-3">
-            <input type="text" class="form-control"id="search-city" aria-label="City Search" aria-describedby="search-button">
+            <input type="text" class="form-control"id="search-city" label="City Search" describedby="search-button">
             <div class="input-group-append">
                 <button class=" btn bg-primary text-light" id="search-button"><i class="fa fa-search"></i></button>
             </div>
         </div>
-    <!--section for search city history-->
+
         <button class=" btn btn-primary" type="button" id="clear-history">Clear history</button>
         <ul class="list-group">
 
@@ -35,7 +39,6 @@
             </div>
         </div>
     </div>
-</div>
 
 <script src="https://code.jquery.com/jquery.js"></script>
 <script scr="assets/js/script.js"></script>
