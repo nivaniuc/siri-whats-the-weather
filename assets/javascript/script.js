@@ -1,6 +1,4 @@
 
-//Declare a variable to store the searched city
-var city="";
 // variable declaration
 var searchCity = $("#search-city");
 var searchButton = $("#search-button");
@@ -21,4 +19,25 @@ function displayWeather(event){
         city=searchCity.val().trim();
         currentWeather(city);
     }
+}
+
+//Click Handlers
+$("#search-button").on("click",displayWeather);
+$(document).on("click",invokePastSearch);
+$(window).on("load",loadlastCity);
+$("#clear-history").on("click",clearHistory);
+
+// Here we create the AJAX call
+function currentWeather(city){
+    // Here we build the URL so we can get a data from server side.
+    var queryURL= "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&APPID=" + APIKey;
+    $.ajax({
+        url:queryURL,
+        method:"GET",
+    }).then(function(response){
+
+        var tempF = (response.main.temp - 273.15) * 1.80 + 32;
+        $(currentTemperature).html((tempF).toFixed(2)+"&#8457");
+
+    });
 }
